@@ -39,12 +39,12 @@ const ACHIEVEMENTS = [
 const Feedbacks = () => {
   return (
     <section className="relative mt-14">
-      <Header
-        useMotion={true}
-        p="Recognition"
-        h2="Achievements & Highlights"
-        content="Competition performance and recognition earned through project work"
-      />
+    <Header
+  useMotion={true}
+  p="Feedbacks"
+  h2="Competition performance and recognition earned through project work"
+/>
+
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}

@@ -17,21 +17,26 @@ import { Header } from "../atoms/Header";
 
 /* ----------------------------- Types ----------------------------- */
 
-interface Project {
-  title: string;
+type ProjectTag = {
+  name: string;
+  color?: string; // optional if you want later
+};
+
+type Project = {
+  name: string;
   description: string;
-  tags: string[];
+  tags: ProjectTag[];
   image?: string;
-  source_code_link: string;
-  demo_link?: string;
+  sourceCodeLink: string;
+  demoLink?: string;
   competition?: boolean;
   award?: string;
-}
+};
 
-interface ProjectCardProps {
+type ProjectCardProps = {
   project: Project;
   index: number;
-}
+};
 
 /* -------------------------- Style Tokens ------------------------- */
 
@@ -48,13 +53,19 @@ const TAG_COLOR_MAP: Record<string, string> = {
   AI: "bg-rose-500/15 text-rose-300 border-rose-500/25",
 };
 
-const getTagClass = (tag: string): string => {
-  return TAG_COLOR_MAP[tag] || "bg-gray-800/40 text-gray-300 border-gray-700";
+const getTagClass = (tagName: string): string => {
+  return TAG_COLOR_MAP[tagName] || "bg-gray-800/40 text-gray-300 border-gray-700";
 };
 
-const getProjectIcon = (tags: string[]) => {
-  const hasAI = tags.some((t) => t.toLowerCase().includes("ai") || t.includes("OpenAI"));
-  const hasAutomation = tags.some((t) => t.toLowerCase().includes("n8n"));
+const getProjectIcon = (tags: ProjectTag[]) => {
+  const tagNames = tags.map((t) => (typeof t?.name === "string" ? t.name : ""));
+
+  const hasAI = tagNames.some(
+    (t) => t.toLowerCase().includes("ai") || t.includes("OpenAI")
+  );
+
+  const hasAutomation = tagNames.some((t) => t.toLowerCase().includes("n8n"));
+
   if (hasAI) return Sparkles;
   if (hasAutomation) return Cpu;
   return Code2;
@@ -71,10 +82,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       className="w-full"
     >
       <Tilt
-        tiltEnable={true}
+        tiltEnable
         tiltMaxAngleX={8}
         tiltMaxAngleY={8}
-        glareEnable={true}
+        glareEnable
         glareMaxOpacity={0.08}
         glareColor="#ffffff"
         className="h-full"
@@ -94,7 +105,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             {project.image ? (
               <img
                 src={project.image}
-                alt={`${project.title} preview`}
+                alt={`${project.name} preview`}
                 className="h-40 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                 loading="lazy"
               />
@@ -115,7 +126,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   </div>
 
                   <h3 className="truncate text-lg sm:text-xl font-bold text-white">
-                    {project.title}
+                    {project.name}
                   </h3>
                 </div>
 
@@ -137,12 +148,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <div className="mb-6 flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
-                key={`${project.title}-${tag}`}
+                key={`${project.name}-${tag.name}`}
                 className={`rounded-full border px-3 py-1 text-xs font-medium ${getTagClass(
-                  tag
+                  tag.name
                 )}`}
               >
-                {tag}
+                {tag.name}
               </span>
             ))}
           </div>
@@ -158,22 +169,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
             <div className="flex items-center gap-3">
               <a
-                href={project.source_code_link}
+                href={project.sourceCodeLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Open source code for ${project.title}`}
+                aria-label={`Open source code for ${project.name}`}
                 className="inline-flex items-center gap-2 rounded-lg border border-gray-800 bg-gray-900/40 px-4 py-2 text-sm font-semibold text-gray-300 transition hover:bg-gray-800/60 hover:text-white"
               >
                 <Github className="h-4 w-4" />
                 Code
               </a>
 
-              {project.demo_link ? (
+              {project.demoLink ? (
                 <a
-                  href={project.demo_link}
+                  href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Open live demo for ${project.title}`}
+                  aria-label={`Open live demo for ${project.name}`}
                   className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#915EFF]/25 to-purple-500/20 px-4 py-2 text-sm font-semibold text-[#C4B5FD] transition hover:from-[#915EFF]/35 hover:to-purple-500/30"
                 >
                   <ExternalLink className="h-4 w-4" />
@@ -195,7 +206,7 @@ const Works: React.FC = () => {
 
   return (
     <section className="relative">
-      <Header useMotion={true} {...config.projects} />
+      <Header useMotion {...config.projects} />
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
@@ -204,18 +215,18 @@ const Works: React.FC = () => {
         {config.projects.content}
       </motion.p>
 
-      {/* Empty state */}
       {projects.length === 0 ? (
         <div className="mt-10 rounded-2xl border border-gray-800 bg-gray-900/30 p-8">
           <p className="text-gray-400">
-            No projects added yet. Add projects inside <span className="text-white font-semibold">config.projects.items</span>.
+            No projects added yet. Add projects inside{" "}
+            <span className="text-white font-semibold">config.projects.items</span>.
           </p>
         </div>
       ) : (
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
           {projects.map((project, index) => (
             <ProjectCard
-              key={`${project.title}-${project.source_code_link}`}
+              key={`${project.name}-${project.sourceCodeLink}`}
               project={project}
               index={index}
             />

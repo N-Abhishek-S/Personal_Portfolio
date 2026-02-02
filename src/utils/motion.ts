@@ -1,22 +1,19 @@
-import type { TMotion } from "../types";
+import type { TMotion } from "../types/index.ts";
 import { Variants } from "framer-motion";
 
-export const textVariant = () => {
-  return {
-    hidden: {
-      y: -50,
-      opacity: 0,
+export const textVariant = (delay: number = 0) => ({
+  hidden: { y: 50, opacity: 0 },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1.25,
+      delay,
     },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        duration: 1.25,
-      },
-    },
-  };
-};
+  },
+});
+
 
 export const fadeIn = (
   direction: TMotion["direction"],

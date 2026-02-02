@@ -1,10 +1,18 @@
-import React, { memo } from "react";
+import { memo } from "react";
+
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
-import { Trophy, Rocket, Code2, GraduationCap, Calendar, MapPin } from "lucide-react";
+import {
+  Trophy,
+  Rocket,
+  Code2,
+  GraduationCap,
+  Calendar,
+  MapPin,
+} from "lucide-react";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -14,10 +22,6 @@ import { fadeIn } from "../../utils/motion";
 import { config } from "../../constants/config";
 import type { TExperience } from "../../types";
 
-/**
- * We extend the base experience type with an optional "type"
- * only for UI badge/icon purposes.
- */
 type ExperienceType = "competition" | "project" | "education";
 
 type ExperienceItem = TExperience & {
@@ -96,13 +100,11 @@ const ExperienceCard = memo(function ExperienceCard({
         transition={{ duration: 0.45, delay: index * 0.08 }}
         viewport={{ once: true, amount: 0.25 }}
       >
-        {/* Date */}
         <div className="flex items-center gap-2 text-gray-300 mb-4 text-sm">
           <Calendar className="w-4 h-4" />
           <span>{experience.date}</span>
         </div>
 
-        {/* Title + Badge */}
         <div className="mb-4">
           <div className="flex items-center justify-between gap-3 mb-2 flex-wrap">
             <h3 className="text-xl font-bold text-white">{experience.title}</h3>
@@ -114,16 +116,14 @@ const ExperienceCard = memo(function ExperienceCard({
             </span>
           </div>
 
-          {/* Company */}
           <div className="flex items-center gap-2 text-[#915EFF] font-medium">
             <MapPin className="w-4 h-4" />
             <span>{experience.companyName}</span>
           </div>
         </div>
 
-        {/* Points */}
         <ul className="space-y-3">
-          {experience.points.map((point, idx) => (
+          {experience.points.map((point: string, idx: number) => (
             <li key={idx} className="flex items-start gap-3 text-gray-300">
               <span className="w-1.5 h-1.5 rounded-full bg-[#915EFF] mt-2 flex-shrink-0" />
               <span className="text-sm leading-relaxed">{point}</span>
@@ -153,7 +153,7 @@ function ExperienceSection() {
         <VerticalTimeline lineColor="rgba(145, 94, 255, 0.2)">
           {timeline.map((experience, index) => (
             <ExperienceCard
-              key={`${experience.title}-${index}`}
+              key={`${experience.title}-${experience.date}-${index}`}
               experience={experience}
               index={index}
             />
