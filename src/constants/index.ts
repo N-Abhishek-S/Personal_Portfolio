@@ -8,267 +8,176 @@ import type {
 } from "../types";
 
 import {
+  web,
   mobile,
   backend,
   creator,
-  web,
-  javascript,
-  typescript,
+
   html,
   css,
+  javascript,
   reactjs,
-  redux,
   tailwind,
-  nodejs,
-  mongodb,
+  threejs,
+
   git,
-  figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
+  github,
+
   carrent,
   jobit,
   tripguide,
-  threejs,
 } from "../assets";
 
+import  gsap  from "../assets/tech/Gsap.png";
+import  n8n  from "../assets/tech/N8N.png";
+import  sql  from "../assets/tech/Sql.png";
+import Cpp  from "../assets/tech/Cpp.png";
+import Java from "../assets/tech/Java.png";
+
+
 export const navLinks: TNavLink[] = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  { id: "about", title: "About" },
+  { id: "projects", title: "Projects" },
+  { id: "experience", title: "Experience" },
+  { id: "tech", title: "Tech" },
+  { id: "contact", title: "Contact" },
 ];
 
-const services: TService[] = [
-  {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "React Native Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Content Creator",
-    icon: creator,
-  },
+/* ---------------------------- Services --------------------------- */
+
+export const services: TService[] = [
+  { title: "Frontend Developer", icon: web },
+  { title: "React Developer", icon: mobile },
+  { title: "AI Prototyper", icon: backend },
+  { title: "Automation Builder (n8n)", icon: creator },
 ];
 
-const technologies: TTechnology[] = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
+/* ------------------------- Technologies -------------------------- */
+
+export const technologies: TTechnology[] = [
+  { name: "HTML 5", icon: html },
+  { name: "CSS 3", icon: css },
+  { name: "JavaScript", icon: javascript },
+  { name: "React.js", icon: reactjs },
+  { name: "Tailwind CSS", icon: tailwind },
+  { name: "Three.js", icon: threejs },
+
+  { name: "Git", icon: git },
+  { name: "GitHub", icon: github },
+  { name: "GSAP", icon: gsap },
+  { name: "n8n", icon: n8n },
+  { name: "SQL", icon: sql },
+
+  { name: "C++", icon: Cpp },
+  { name: "Java", icon: Java },
 ];
 
-const experiences: TExperience[] = [
+/* --------------------------- Experience -------------------------- */
+
+export const experiences: TExperience[] = [
   {
-    title: "React.js Developer",
-    companyName: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "BCA Student (Final Year)",
+    company: {
+      name: "Dr. Babasaheb Ambedkar Marathwada University",
+      color: "text-white",
+    },
+    type: "education",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Final year BCA student focused on full-stack prototyping and frontend engineering.",
+      "Building projects in AI + E-Commerce + Health domains for competitions.",
+      "Improving communication skills for project pitching and presentations.",
     ],
   },
   {
-    title: "React Native Developer",
-    companyName: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    title: "React Developer & UI Builder",
+    company: {
+      name: "Self Projects / Freelance Practice",
+      color: "text-white",
+    },
+    type: "project",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Building responsive web apps using React, Tailwind CSS, and modern UI patterns.",
+      "Creating animations and interactions using GSAP and Framer Motion.",
+      "Integrating backend services (Appwrite / Firebase / Supabase) for prototypes.",
     ],
   },
   {
-    title: "Web Developer",
-    companyName: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    title: "VeriMart - AI Shopping Assistant",
+    company: {
+      name: "State-Level Competition Project",
+      color: "text-white",
+    },
+    type: "competition",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    companyName: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developed an AI-based recommendation + product filtering prototype.",
+      "Built clean UI flow for user face analyzer + product suggestions.",
+      "Worked on automation workflows using n8n for quick prototyping.",
     ],
   },
 ];
 
-const testimonials: TTestimonial[] = [
+
+/* -------------------------- Testimonials -------------------------- */
+/**
+ * ✅ Don’t add fake testimonials.
+ * One honest self-statement is enough.
+ */
+export const testimonials: TTestimonial[] = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+      "Focused on building fast prototypes with clean UI, real features, and strong presentations for competitions.",
+    name: "Abhishek Nagargoje",
+    designation: "BCA Final Year Student",
+    company: "Portfolio",
+    image:
+      "https://ui-avatars.com/api/?name=Abhishek+Nagargoje&background=915EFF&color=fff",
   },
 ];
 
-const projects: TProject[] = [
+/* ---------------------------- Projects --------------------------- */
+
+export const projects: TProject[] = [
   {
-    name: "Car Rent",
+    
+    title: "VeriMart - AI Shopping Assistant",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "AI-based prototype that recommends products with smart filtering and UI-first experience for competitions.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "React.js", color: "blue-text-gradient" },
+      { name: "Tailwind CSS", color: "green-text-gradient" },
+      { name: "OpenAI API", color: "pink-text-gradient" },
+      { name: "AI", color: "blue-text-gradient" },
+      { name: "n8n", color: "green-text-gradient" },
     ],
     image: carrent,
-    sourceCodeLink: "https://github.com/",
+    source_code_link: "https://github.com/N-Abhishek-S",
+    competition: true,
+    award: "State Level",
   },
   {
-    name: "Job IT",
+    title: "Mega Blog Platform",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Blog website built with React and backend integration for authentication and publishing.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      { name: "React.js", color: "blue-text-gradient" },
+      { name: "Tailwind CSS", color: "green-text-gradient" },
+      { name: "Appwrite", color: "pink-text-gradient" },
+      { name: "JavaScript", color: "blue-text-gradient" },
     ],
     image: jobit,
-    sourceCodeLink: "https://github.com/",
+    source_code_link: "https://github.com/N-Abhishek-S",
   },
   {
-    name: "Trip Guide",
+    title: "Paytm Clone (UI + Flow)",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Frontend clone focusing on UI layout, responsiveness and component architecture in React.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "React.js", color: "blue-text-gradient" },
+      { name: "Tailwind CSS", color: "green-text-gradient" },
+      { name: "JavaScript", color: "pink-text-gradient" },
     ],
     image: tripguide,
-    sourceCodeLink: "https://github.com/",
+    source_code_link: "https://github.com/N-Abhishek-S",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
