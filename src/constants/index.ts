@@ -28,18 +28,17 @@ import {
   tripguide,
 } from "../assets";
 
-import  gsap  from "../assets/tech/Gsap.png";
-import  n8n  from "../assets/tech/N8N.png";
-import  sql  from "../assets/tech/Sql.png";
-import Cpp  from "../assets/tech/Cpp.png";
+import gsap from "../assets/tech/Gsap.png";
+import n8n from "../assets/tech/N8N.png";
+import sql from "../assets/tech/Sql.png";
+import Cpp from "../assets/tech/Cpp.png";
 import Java from "../assets/tech/Java.png";
 
+/* ---------------------------- Nav Links --------------------------- */
 
 export const navLinks: TNavLink[] = [
   { id: "about", title: "About" },
-  { id: "projects", title: "Projects" },
-  { id: "experience", title: "Experience" },
-  { id: "tech", title: "Tech" },
+  { id: "work", title: "Work" },
   { id: "contact", title: "Contact" },
 ];
 
@@ -64,6 +63,7 @@ export const technologies: TTechnology[] = [
 
   { name: "Git", icon: git },
   { name: "GitHub", icon: github },
+
   { name: "GSAP", icon: gsap },
   { name: "n8n", icon: n8n },
   { name: "SQL", icon: sql },
@@ -73,15 +73,17 @@ export const technologies: TTechnology[] = [
 ];
 
 /* --------------------------- Experience -------------------------- */
-
+/**
+ * Must match:
+ * TExperience = { companyName, iconBg, date, points } + { title, icon }
+ */
 export const experiences: TExperience[] = [
   {
     title: "BCA Student (Final Year)",
-    company: {
-      name: "Dr. Babasaheb Ambedkar Marathwada University",
-      color: "text-white",
-    },
-    type: "education",
+    companyName: "Dr. Babasaheb Ambedkar Marathwada University",
+    icon: backend,
+    iconBg: "#383E56",
+    date: "2023 - 2026",
     points: [
       "Final year BCA student focused on full-stack prototyping and frontend engineering.",
       "Building projects in AI + E-Commerce + Health domains for competitions.",
@@ -90,11 +92,10 @@ export const experiences: TExperience[] = [
   },
   {
     title: "React Developer & UI Builder",
-    company: {
-      name: "Self Projects / Freelance Practice",
-      color: "text-white",
-    },
-    type: "project",
+    companyName: "Self Projects / Freelance Practice",
+    icon: web,
+    iconBg: "#1F2937",
+    date: "2024 - Present",
     points: [
       "Building responsive web apps using React, Tailwind CSS, and modern UI patterns.",
       "Creating animations and interactions using GSAP and Framer Motion.",
@@ -103,11 +104,10 @@ export const experiences: TExperience[] = [
   },
   {
     title: "VeriMart - AI Shopping Assistant",
-    company: {
-      name: "State-Level Competition Project",
-      color: "text-white",
-    },
-    type: "competition",
+    companyName: "State-Level Competition Project",
+    icon: creator,
+    iconBg: "#2A2A2A",
+    date: "2025 - 2026",
     points: [
       "Developed an AI-based recommendation + product filtering prototype.",
       "Built clean UI flow for user face analyzer + product suggestions.",
@@ -116,11 +116,10 @@ export const experiences: TExperience[] = [
   },
 ];
 
-
 /* -------------------------- Testimonials -------------------------- */
 /**
- * ✅ Don’t add fake testimonials.
- * One honest self-statement is enough.
+ * Must match:
+ * TTestimonial = {testimonial, designation, company, image} + {name}
  */
 export const testimonials: TTestimonial[] = [
   {
@@ -135,11 +134,13 @@ export const testimonials: TTestimonial[] = [
 ];
 
 /* ---------------------------- Projects --------------------------- */
-
+/**
+ * Must match:
+ * TProject = {description, tags, image, sourceCodeLink} + {name}
+ */
 export const projects: TProject[] = [
   {
-    
-    title: "VeriMart - AI Shopping Assistant",
+    name: "VeriMart - AI Shopping Assistant",
     description:
       "AI-based prototype that recommends products with smart filtering and UI-first experience for competitions.",
     tags: [
@@ -150,12 +151,10 @@ export const projects: TProject[] = [
       { name: "n8n", color: "green-text-gradient" },
     ],
     image: carrent,
-    source_code_link: "https://github.com/N-Abhishek-S",
-    competition: true,
-    award: "State Level",
+    sourceCodeLink: "https://github.com/N-Abhishek-S",
   },
   {
-    title: "Mega Blog Platform",
+    name: "Mega Blog Platform",
     description:
       "Blog website built with React and backend integration for authentication and publishing.",
     tags: [
@@ -165,10 +164,10 @@ export const projects: TProject[] = [
       { name: "JavaScript", color: "blue-text-gradient" },
     ],
     image: jobit,
-    source_code_link: "https://github.com/N-Abhishek-S",
+    sourceCodeLink: "https://github.com/N-Abhishek-S",
   },
   {
-    title: "Paytm Clone (UI + Flow)",
+    name: "Paytm Clone (UI + Flow)",
     description:
       "Frontend clone focusing on UI layout, responsiveness and component architecture in React.",
     tags: [
@@ -177,7 +176,6 @@ export const projects: TProject[] = [
       { name: "JavaScript", color: "pink-text-gradient" },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/N-Abhishek-S",
+    sourceCodeLink: "https://github.com/N-Abhishek-S",
   },
 ];
-
