@@ -9,7 +9,7 @@ const BADGES = [
   { text: "🥉 University Level (3rd)", color: "text-purple-400 border-purple-500/20 from-purple-500/10 to-purple-600/10" },
 ];
 
-const LEARNING = ["Advanced JavaScript", "Java", "Next.js", "Cybersecurity", "Three.js"];
+const LEARNING = ["Java", "SQL", "Docker", "Cybersecurity", ];
 
 const SOCIALS = [
   {
